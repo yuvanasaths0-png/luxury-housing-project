@@ -1,0 +1,61 @@
+1)Total properties count:
+
+SELECT COUNT(*) AS total_properties
+FROM luxury_house;
+
+2)Possession Status Distribution:
+
+SELECT Possession_Status, COUNT(*) AS total_count
+FROM luxury_house
+GROUP BY Possession_Status;
+
+3)Builder Average Price:
+
+SELECT Developer_Name,
+       AVG(Ticket_Price_Cr) AS avg_price
+FROM luxury_house
+GROUP BY Developer_Name;
+
+
+4)Top revenue builder:
+
+SELECT Developer_Name,
+       SUM(Ticket_Price_Cr) AS total_revenue
+FROM luxury_house
+GROUP BY Developer_Name
+ORDER BY total_revenue DESC
+LIMIT 5;
+
+5) Micro market analysis:
+
+SELECT Micro_Market,
+       COUNT(*) AS total_projects,
+       AVG(Ticket_Price_Cr) AS avg_price
+FROM luxury_house
+GROUP BY Micro_Market
+ORDER BY total_projects DESC;
+
+6)Configuration demand:
+
+SELECT Configuration,
+       COUNT(*) AS demand_count
+FROM luxury_house
+GROUP BY Configuration
+ORDER BY demand_count DESC;
+
+7)Sales channel performance:
+
+SELECT Sales_Channel,
+       COUNT(*) AS bookings
+FROM luxury_house
+GROUP BY Sales_Channel
+ORDER BY bookings DESC;
+
+
+
+8)Amenity score insight:
+
+SELECT Possession_Status,
+       AVG(Amenity_Score) AS avg_amenity
+FROM luxury_house
+GROUP BY Possession_Status;
